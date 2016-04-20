@@ -1,0 +1,9 @@
+source "git@gitlab.alibaba-inc.com:alipods/specs.git"
+source "git@gitlab.alibaba-inc.com:alipods/specs-mirror.git"
+
+
+platform :ios, '7.0'
+
+pod 'AMap3DMap'
+pod 'AMapSearch'
+pod 'Masonry', '~> 1.0.0'

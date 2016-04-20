@@ -1,0 +1,17 @@
+source "git@gitlab.alibaba-inc.com:alipods/specs.git"
+source "git@gitlab.alibaba-inc.com:alipods/specs-mirror.git"
+
+platform :ios, '7.0'
+
+
+target 'AsyncDisplayKitDemo' do
+    pod 'WaterFlowLayout', '~> 1.0.3'##:git => 'https://github.com/goodyboy6/WaterFlowLayout.git'#私有库
+    pod 'AsyncDisplayKit', '~> 1.9.5'
+    pod 'Masonry', '~> 0.6.4'
+#    pod 'UIView+UIImageEffects', '~> 0.0.2'
+end
+
+#target 'AsyncDisplayKitDemo2' do
+#    pod 'WaterFlowLayout', '~> 1.0.3'##:git => 'https://github.com/goodyboy6/WaterFlowLayout.git'#私有库
+#    pod 'AsyncDisplayKit', '~> 1.9.5'
+#end

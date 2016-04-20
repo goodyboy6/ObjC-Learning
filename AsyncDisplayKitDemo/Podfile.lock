@@ -1,0 +1,18 @@
+PODS:
+  - AsyncDisplayKit (1.9.6):
+    - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.6)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.6)
+  - Masonry (0.6.4)
+  - WaterFlowLayout (1.0.3)
+
+DEPENDENCIES:
+  - AsyncDisplayKit (~> 1.9.5)
+  - Masonry (~> 0.6.4)
+  - WaterFlowLayout (~> 1.0.3)
+
+SPEC CHECKSUMS:
+  AsyncDisplayKit: fee0a65d6bbec8f6073a63463281383837bbb0a4
+  Masonry: 0de6cf428111b5d31cc189c7a1b93638d7f7795e
+  WaterFlowLayout: a26bda76f735fb9b4f41f98bb85c8925b9370208
+
+COCOAPODS: 0.38.2
