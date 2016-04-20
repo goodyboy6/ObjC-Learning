@@ -1,0 +1,6 @@
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Bz4-vF-15f"; */
+"Bz4-vF-15f.title" = "Root View Controller";
+
+/* Class = "UIButton"; normalTitle = "Click it! use custom segue to present"; ObjectID = "Q30-1m-z0I"; */
+"Q30-1m-z0I.normalTitle" = "Click it! use custom segue to present";
