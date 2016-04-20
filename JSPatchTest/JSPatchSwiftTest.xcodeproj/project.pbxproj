@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		313CAD211CC607BF00960607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD201CC607BF00960607 /* AppDelegate.swift */; };
+		313CAD231CC607BF00960607 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD221CC607BF00960607 /* ViewController.swift */; };
+		313CAD261CC607BF00960607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313CAD241CC607BF00960607 /* Main.storyboard */; };
+		313CAD281CC607BF00960607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 313CAD271CC607BF00960607 /* Assets.xcassets */; };
+		313CAD2B1CC607BF00960607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313CAD291CC607BF00960607 /* LaunchScreen.storyboard */; };
+		313CAD361CC607BF00960607 /* JSPatchSwiftTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD351CC607BF00960607 /* JSPatchSwiftTestTests.swift */; };
+		313CAD411CC607BF00960607 /* JSPatchSwiftTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD401CC607BF00960607 /* JSPatchSwiftTestUITests.swift */; };
+		313CAD5C1CC6091F00960607 /* WBJSPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD5A1CC6091F00960607 /* WBJSPathManager.m */; };
+		313CAD5D1CC6091F00960607 /* WBJSTest.js in Resources */ = {isa = PBXBuildFile; fileRef = 313CAD5B1CC6091F00960607 /* WBJSTest.js */; };
+		313CAD601CC7152B00960607 /* ObjCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD5F1CC7152B00960607 /* ObjCViewController.m */; };
+		89964A4DA551F6A4D9A70DDB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9262294908C48D6B96ECE50F /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		313CAD321CC607BF00960607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 313CAD151CC607BF00960607 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 313CAD1C1CC607BF00960607;
+			remoteInfo = JSPatchSwiftTest;
+		};
+		313CAD3D1CC607BF00960607 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 313CAD151CC607BF00960607 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 313CAD1C1CC607BF00960607;
+			remoteInfo = JSPatchSwiftTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03A9C081A88127C327F1DD03 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		313CAD1D1CC607BF00960607 /* JSPatchSwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSPatchSwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		313CAD201CC607BF00960607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		313CAD221CC607BF00960607 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		313CAD251CC607BF00960607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		313CAD271CC607BF00960607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		313CAD2A1CC607BF00960607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		313CAD2C1CC607BF00960607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313CAD311CC607BF00960607 /* JSPatchSwiftTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSPatchSwiftTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		313CAD351CC607BF00960607 /* JSPatchSwiftTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPatchSwiftTestTests.swift; sourceTree = "<group>"; };
+		313CAD371CC607BF00960607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313CAD3C1CC607BF00960607 /* JSPatchSwiftTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSPatchSwiftTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		313CAD401CC607BF00960607 /* JSPatchSwiftTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPatchSwiftTestUITests.swift; sourceTree = "<group>"; };
+		313CAD421CC607BF00960607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		313CAD571CC6085000960607 /* JSPatchSwiftTest-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSPatchSwiftTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		313CAD591CC6091F00960607 /* WBJSPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJSPathManager.h; sourceTree = "<group>"; };
+		313CAD5A1CC6091F00960607 /* WBJSPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJSPathManager.m; sourceTree = "<group>"; };
+		313CAD5B1CC6091F00960607 /* WBJSTest.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WBJSTest.js; sourceTree = "<group>"; };
+		313CAD5E1CC7152B00960607 /* ObjCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCViewController.h; sourceTree = "<group>"; };
+		313CAD5F1CC7152B00960607 /* ObjCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCViewController.m; sourceTree = "<group>"; };
+		441C9A163EA8F042CE1BA360 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9262294908C48D6B96ECE50F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		313CAD1A1CC607BF00960607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89964A4DA551F6A4D9A70DDB /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD2E1CC607BF00960607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD391CC607BF00960607 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		313CAD141CC607BF00960607 = {
+			isa = PBXGroup;
+			children = (
+				313CAD1F1CC607BF00960607 /* JSPatchSwiftTest */,
+				313CAD341CC607BF00960607 /* JSPatchSwiftTestTests */,
+				313CAD3F1CC607BF00960607 /* JSPatchSwiftTestUITests */,
+				313CAD1E1CC607BF00960607 /* Products */,
+				F9501130B0610A5A78ED96AA /* Pods */,
+				6AE4DFC8DD8E8E0C85D46342 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		313CAD1E1CC607BF00960607 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				313CAD1D1CC607BF00960607 /* JSPatchSwiftTest.app */,
+				313CAD311CC607BF00960607 /* JSPatchSwiftTestTests.xctest */,
+				313CAD3C1CC607BF00960607 /* JSPatchSwiftTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		313CAD1F1CC607BF00960607 /* JSPatchSwiftTest */ = {
+			isa = PBXGroup;
+			children = (
+				313CAD581CC6091F00960607 /* JSPatchModule */,
+				313CAD201CC607BF00960607 /* AppDelegate.swift */,
+				313CAD221CC607BF00960607 /* ViewController.swift */,
+				313CAD5E1CC7152B00960607 /* ObjCViewController.h */,
+				313CAD5F1CC7152B00960607 /* ObjCViewController.m */,
+				313CAD241CC607BF00960607 /* Main.storyboard */,
+				313CAD271CC607BF00960607 /* Assets.xcassets */,
+				313CAD291CC607BF00960607 /* LaunchScreen.storyboard */,
+				313CAD2C1CC607BF00960607 /* Info.plist */,
+				313CAD571CC6085000960607 /* JSPatchSwiftTest-Bridging-Header.h */,
+			);
+			path = JSPatchSwiftTest;
+			sourceTree = "<group>";
+		};
+		313CAD341CC607BF00960607 /* JSPatchSwiftTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				313CAD351CC607BF00960607 /* JSPatchSwiftTestTests.swift */,
+				313CAD371CC607BF00960607 /* Info.plist */,
+			);
+			path = JSPatchSwiftTestTests;
+			sourceTree = "<group>";
+		};
+		313CAD3F1CC607BF00960607 /* JSPatchSwiftTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				313CAD401CC607BF00960607 /* JSPatchSwiftTestUITests.swift */,
+				313CAD421CC607BF00960607 /* Info.plist */,
+			);
+			path = JSPatchSwiftTestUITests;
+			sourceTree = "<group>";
+		};
+		313CAD581CC6091F00960607 /* JSPatchModule */ = {
+			isa = PBXGroup;
+			children = (
+				313CAD591CC6091F00960607 /* WBJSPathManager.h */,
+				313CAD5A1CC6091F00960607 /* WBJSPathManager.m */,
+				313CAD5B1CC6091F00960607 /* WBJSTest.js */,
+			);
+			path = JSPatchModule;
+			sourceTree = "<group>";
+		};
+		6AE4DFC8DD8E8E0C85D46342 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9262294908C48D6B96ECE50F /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9501130B0610A5A78ED96AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				441C9A163EA8F042CE1BA360 /* Pods.debug.xcconfig */,
+				03A9C081A88127C327F1DD03 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		313CAD1C1CC607BF00960607 /* JSPatchSwiftTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 313CAD451CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTest" */;
+			buildPhases = (
+				164371B6EE9C0AA7AD7B4B80 /* Check Pods Manifest.lock */,
+				313CAD191CC607BF00960607 /* Sources */,
+				313CAD1A1CC607BF00960607 /* Frameworks */,
+				313CAD1B1CC607BF00960607 /* Resources */,
+				84D732943352CBDCE3B3E98E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JSPatchSwiftTest;
+			productName = JSPatchSwiftTest;
+			productReference = 313CAD1D1CC607BF00960607 /* JSPatchSwiftTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		313CAD301CC607BF00960607 /* JSPatchSwiftTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 313CAD481CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTestTests" */;
+			buildPhases = (
+				313CAD2D1CC607BF00960607 /* Sources */,
+				313CAD2E1CC607BF00960607 /* Frameworks */,
+				313CAD2F1CC607BF00960607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				313CAD331CC607BF00960607 /* PBXTargetDependency */,
+			);
+			name = JSPatchSwiftTestTests;
+			productName = JSPatchSwiftTestTests;
+			productReference = 313CAD311CC607BF00960607 /* JSPatchSwiftTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		313CAD3B1CC607BF00960607 /* JSPatchSwiftTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 313CAD4B1CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTestUITests" */;
+			buildPhases = (
+				313CAD381CC607BF00960607 /* Sources */,
+				313CAD391CC607BF00960607 /* Frameworks */,
+				313CAD3A1CC607BF00960607 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				313CAD3E1CC607BF00960607 /* PBXTargetDependency */,
+			);
+			name = JSPatchSwiftTestUITests;
+			productName = JSPatchSwiftTestUITests;
+			productReference = 313CAD3C1CC607BF00960607 /* JSPatchSwiftTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		313CAD151CC607BF00960607 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = yixiaoluo;
+				TargetAttributes = {
+					313CAD1C1CC607BF00960607 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					313CAD301CC607BF00960607 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 313CAD1C1CC607BF00960607;
+					};
+					313CAD3B1CC607BF00960607 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 313CAD1C1CC607BF00960607;
+					};
+				};
+			};
+			buildConfigurationList = 313CAD181CC607BF00960607 /* Build configuration list for PBXProject "JSPatchSwiftTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 313CAD141CC607BF00960607;
+			productRefGroup = 313CAD1E1CC607BF00960607 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				313CAD1C1CC607BF00960607 /* JSPatchSwiftTest */,
+				313CAD301CC607BF00960607 /* JSPatchSwiftTestTests */,
+				313CAD3B1CC607BF00960607 /* JSPatchSwiftTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		313CAD1B1CC607BF00960607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				313CAD2B1CC607BF00960607 /* LaunchScreen.storyboard in Resources */,
+				313CAD281CC607BF00960607 /* Assets.xcassets in Resources */,
+				313CAD5D1CC6091F00960607 /* WBJSTest.js in Resources */,
+				313CAD261CC607BF00960607 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD2F1CC607BF00960607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD3A1CC607BF00960607 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		164371B6EE9C0AA7AD7B4B80 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84D732943352CBDCE3B3E98E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		313CAD191CC607BF00960607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				313CAD601CC7152B00960607 /* ObjCViewController.m in Sources */,
+				313CAD231CC607BF00960607 /* ViewController.swift in Sources */,
+				313CAD5C1CC6091F00960607 /* WBJSPathManager.m in Sources */,
+				313CAD211CC607BF00960607 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD2D1CC607BF00960607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				313CAD361CC607BF00960607 /* JSPatchSwiftTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		313CAD381CC607BF00960607 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				313CAD411CC607BF00960607 /* JSPatchSwiftTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		313CAD331CC607BF00960607 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 313CAD1C1CC607BF00960607 /* JSPatchSwiftTest */;
+			targetProxy = 313CAD321CC607BF00960607 /* PBXContainerItemProxy */;
+		};
+		313CAD3E1CC607BF00960607 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 313CAD1C1CC607BF00960607 /* JSPatchSwiftTest */;
+			targetProxy = 313CAD3D1CC607BF00960607 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		313CAD241CC607BF00960607 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				313CAD251CC607BF00960607 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		313CAD291CC607BF00960607 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				313CAD2A1CC607BF00960607 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		313CAD431CC607BF00960607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		313CAD441CC607BF00960607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		313CAD461CC607BF00960607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 441C9A163EA8F042CE1BA360 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JSPatchSwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JSPatchSwiftTest/JSPatchSwiftTest-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		313CAD471CC607BF00960607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03A9C081A88127C327F1DD03 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JSPatchSwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JSPatchSwiftTest/JSPatchSwiftTest-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		313CAD491CC607BF00960607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JSPatchSwiftTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSPatchSwiftTest.app/JSPatchSwiftTest";
+			};
+			name = Debug;
+		};
+		313CAD4A1CC607BF00960607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JSPatchSwiftTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSPatchSwiftTest.app/JSPatchSwiftTest";
+			};
+			name = Release;
+		};
+		313CAD4C1CC607BF00960607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JSPatchSwiftTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JSPatchSwiftTest;
+			};
+			name = Debug;
+		};
+		313CAD4D1CC607BF00960607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JSPatchSwiftTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AM.JSPatchSwiftTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JSPatchSwiftTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		313CAD181CC607BF00960607 /* Build configuration list for PBXProject "JSPatchSwiftTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313CAD431CC607BF00960607 /* Debug */,
+				313CAD441CC607BF00960607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		313CAD451CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313CAD461CC607BF00960607 /* Debug */,
+				313CAD471CC607BF00960607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		313CAD481CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313CAD491CC607BF00960607 /* Debug */,
+				313CAD4A1CC607BF00960607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		313CAD4B1CC607BF00960607 /* Build configuration list for PBXNativeTarget "JSPatchSwiftTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				313CAD4C1CC607BF00960607 /* Debug */,
+				313CAD4D1CC607BF00960607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 313CAD151CC607BF00960607 /* Project object */;
+}
