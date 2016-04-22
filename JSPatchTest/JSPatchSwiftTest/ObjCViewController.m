@@ -37,13 +37,13 @@ static NSUInteger const kPasswordMinLength = 6;
         BOOL enable = useName.length >= kUserNameMinLength && password.length >= kPasswordMinLength;
         return @(enable);
     }];
-    
+
     RAC(self.loginButton, enabled) = enableSignal;
     //equal to ==>
     //[[[RACSubscriptingAssignmentTrampoline alloc] initWithTarget:self.loginButton nilValue:@0] setObject:enableSignal forKeyedSubscript:@"enabled"];
     
     @weakify(self);
-    [RACObserve(self.loginButton, enabled) subscribeNext:^(NSNumber *x) {
+    [RACObserve(self.loginButton, enabled)  subscribeNext:^(NSNumber *x) {
         @strongify(self);
         if (x.boolValue) {
             [self dismissViewControllerAnimated:YES completion:NULL];
@@ -56,6 +56,18 @@ static NSUInteger const kPasswordMinLength = 6;
 //          [self dismissViewControllerAnimated:YES completion:NULL];
 //        }
 //    }];
+    
+    
+    
+    //difference between filter and map ??
+    [[[RACObserve(self.userNameField, text) filter:^BOOL(NSString *value) {
+        return [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }] map:^id(id value) {
+        return value;
+    }] subscribeNext:^(id x) {
+        NSLog(@"userName did changed: %@", x);
+    }];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
