@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class RACSubject;
+@class RACSubject, RACSignal;
 @interface LoginViewModel : NSObject
 
 @property (nonatomic) NSString *userName;
@@ -17,5 +17,9 @@
 - (RACSubject *)loginRequestSignal;
 
 - (void)login;
+
+
+- (RACSignal *)loginRequestSignal1;
+- (RACSignal *)loginRequestSignal2;
 
 @end

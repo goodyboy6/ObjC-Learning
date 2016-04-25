@@ -16,6 +16,7 @@
 		313CAD8D1CC86AE500960607 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD891CC86AE400960607 /* LoginViewModel.m */; };
 		313CAD8E1CC86AE500960607 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD8B1CC86AE500960607 /* ViewController.m */; };
 		313CAD9A1CC8A1A000960607 /* LoginViewModel+RACCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 313CAD991CC8A1A000960607 /* LoginViewModel+RACCommand.m */; };
+		3193A3C71CCDC73A00E73AE2 /* Examples.m in Sources */ = {isa = PBXBuildFile; fileRef = 3193A3C61CCDC73A00E73AE2 /* Examples.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		313CAD8B1CC86AE500960607 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		313CAD981CC8A1A000960607 /* LoginViewModel+RACCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LoginViewModel+RACCommand.h"; sourceTree = "<group>"; };
 		313CAD991CC8A1A000960607 /* LoginViewModel+RACCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LoginViewModel+RACCommand.m"; sourceTree = "<group>"; };
+		3193A3C51CCDC73A00E73AE2 /* Examples.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Examples.h; sourceTree = "<group>"; };
+		3193A3C61CCDC73A00E73AE2 /* Examples.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Examples.m; sourceTree = "<group>"; };
 		B8C0405040B837E9B0801475 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C5FA6CA80BCC329EAD29D460 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EBCD8BB8FFC0F481EDAC39 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				313CAD891CC86AE400960607 /* LoginViewModel.m */,
 				313CAD981CC8A1A000960607 /* LoginViewModel+RACCommand.h */,
 				313CAD991CC8A1A000960607 /* LoginViewModel+RACCommand.m */,
+				3193A3C51CCDC73A00E73AE2 /* Examples.h */,
+				3193A3C61CCDC73A00E73AE2 /* Examples.m */,
 				313CAD8A1CC86AE500960607 /* ViewController.h */,
 				313CAD8B1CC86AE500960607 /* ViewController.m */,
 			);
@@ -231,6 +236,7 @@
 				313CAD721CC7CBE200960607 /* AppDelegate.m in Sources */,
 				313CAD6F1CC7CBE200960607 /* main.m in Sources */,
 				313CAD8E1CC86AE500960607 /* ViewController.m in Sources */,
+				3193A3C71CCDC73A00E73AE2 /* Examples.m in Sources */,
 				313CAD8D1CC86AE500960607 /* LoginViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
