@@ -48,6 +48,23 @@
 
 }
 
+- (RACSignal *)loginRequestErrorSignal
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                [subscriber sendError:[NSError errorWithDomain:@"domain" code:123 userInfo:nil]];
+            });
+        });
+        
+        return nil;
+    }];
+    
+    return signal;
+    
+}
+
 - (RACSignal *)loginRequestSignal1
 {
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -83,11 +100,15 @@
                                        @"address":@"HangZhou222"
                                        };
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [subscriber sendNext:userInfo];
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [subscriber sendNext:userInfo];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [subscriber sendNext:@{
+                                           @"userName":@"Jack000",
+                                           @"sex":@"000",
+                                           @"address":@"HangZhou000"
+                                           }];
                     [subscriber sendCompleted];
                 });
             });

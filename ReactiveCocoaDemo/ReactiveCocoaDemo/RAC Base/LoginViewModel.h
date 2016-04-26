@@ -21,5 +21,6 @@
 
 - (RACSignal *)loginRequestSignal1;
 - (RACSignal *)loginRequestSignal2;
+- (RACSignal *)loginRequestErrorSignal;
 
 @end
