@@ -37,6 +37,16 @@ static NSInteger const kMinPasswordLength = 6;
     //examples
     self.examples = [Examples new];
     [self.examples excuteExamples];
+    
+    [[self rac_signalForSelector:@selector(viewDidAppear:)] subscribeNext:^(id x) {
+        NSLog(@"innter rac_signalForSelector:viewDidAppear");
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"innter viewDidAppear");
 }
 
 - (LoginViewModel *)loginViewModel

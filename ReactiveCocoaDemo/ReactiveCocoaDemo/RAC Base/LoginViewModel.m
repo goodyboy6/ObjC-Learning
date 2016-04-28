@@ -48,12 +48,47 @@
 
 }
 
+- (RACSignal *)loginRequestStringSignal
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                [subscriber sendNext:@"tttt"];
+            });
+        });
+        
+        return nil;
+    }];
+    
+    return signal;
+    
+}
+
+- (RACSignal *)loginRequestBoolSignal
+{
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                [subscriber sendNext:@(NO)];
+            });
+        });
+        
+        return nil;
+    }];
+    
+    return signal;
+    
+}
+
 - (RACSignal *)loginRequestErrorSignal
 {
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
             dispatch_async(dispatch_get_main_queue(), ^(void) {
+                NSLog(@"retry time");
                 [subscriber sendError:[NSError errorWithDomain:@"domain" code:123 userInfo:nil]];
             });
         });
@@ -100,10 +135,10 @@
                                        @"address":@"HangZhou222"
                                        };
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [subscriber sendNext:userInfo];
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [subscriber sendNext:@{
                                            @"userName":@"Jack000",
                                            @"sex":@"000",

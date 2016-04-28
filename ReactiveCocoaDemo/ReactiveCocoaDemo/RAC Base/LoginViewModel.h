@@ -22,5 +22,7 @@
 - (RACSignal *)loginRequestSignal1;
 - (RACSignal *)loginRequestSignal2;
 - (RACSignal *)loginRequestErrorSignal;
+- (RACSignal *)loginRequestStringSignal;//return "tttt"
+- (RACSignal *)loginRequestBoolSignal;
 
 @end

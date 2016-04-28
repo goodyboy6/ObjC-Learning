@@ -16,10 +16,416 @@
 
 - (void)excuteExamples
 {
-    [self excuteCatchErrorSignal];
+    [self excuteFlattenMap];
 }
 
 #pragma mark - sub example
+- (void)needExcute
+{
+    /*
+    - (id)first;
+    
+    /// Returns the first `next` or `defaultValue` if the signal completes or errors
+    /// without sending a `next`. Note that this is a blocking call.
+    - (id)firstOrDefault:(id)defaultValue;
+    
+    /// Returns the first `next` or `defaultValue` if the signal completes or errors
+    /// without sending a `next`. If an error occurs success will be NO and error
+    /// will be populated. Note that this is a blocking call.
+    ///
+    /// Both success and error may be NULL.
+    - (id)firstOrDefault:(id)defaultValue success:(BOOL *)success error:(NSError **)error;
+    
+    /// Blocks the caller and waits for the signal to complete.
+    ///
+    /// error - If not NULL, set to any error that occurs.
+    ///
+    /// Returns whether the signal completed successfully. If NO, `error` will be set
+    /// to the error that occurred.
+    - (BOOL)waitUntilCompleted:(NSError **)error;
+
+     /// Adds every `next` to an array. Nils are represented by NSNulls. Note that
+     /// this is a blocking call.
+     ///
+     /// **This is not the same as the `ToArray` method in Rx.** See -collect for
+     /// that behavior instead.
+     ///
+     /// Returns the array of `next` values, or nil if an error occurs.
+     - (NSArray *)toArray;
+
+     /// Adds every `next` to a sequence. Nils are represented by NSNulls.
+     ///
+     /// This corresponds to the `ToEnumerable` method in Rx.
+     ///
+     /// Returns a sequence which provides values from the signal as they're sent.
+     /// Trying to retrieve a value from the sequence which has not yet been sent will
+     /// block.
+     @property (nonatomic, strong, readonly) RACSequence *sequence;
+     
+     /// Creates and returns a multicast connection. This allows you to share a single
+     /// subscription to the underlying signal.
+     - (RACMulticastConnection *)publish;
+     
+     /// Creates and returns a multicast connection that pushes values into the given
+     /// subject. This allows you to share a single subscription to the underlying
+     /// signal.
+     - (RACMulticastConnection *)multicast:(RACSubject *)subject;
+
+     */
+}
+
+- (void)excuteFlattenMap
+{
+    RACSignal *signal1 = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"signal 1"];
+        return nil;
+    }];
+    
+    [[signal1 flattenMap:^RACStream *(id value) {
+        return [RACSignal return:value];
+    }] subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+}
+
+- (void)excuteStartEagerly
+{
+    RACSignal *lazilySignal = [RACSignal startLazilyWithScheduler:[RACScheduler mainThreadScheduler] block:^(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"lazilySignal"];
+    }];
+
+    RACSignal *eagerlySignal = [RACSignal startEagerlyWithScheduler:[RACScheduler mainThreadScheduler] block:^(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"eagerlySignal"];
+    }];
+    
+    [lazilySignal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    
+    [eagerlySignal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+}
+
+- (void)excuteAnd
+{
+    RACSignal *repeatSignal = [[[[[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@(YES)];
+        [subscriber sendNext:@(6)];
+        [subscriber sendCompleted];
+        return nil;
+    }] delay:1]
+                                  repeat]
+                                 take:2]
+                                bufferWithTime:5 onScheduler:[RACScheduler mainThreadScheduler]]
+                                or];//对所有bool作or／and操作
+
+    [repeatSignal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+}
+
+- (void)excuteSample
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+
+    RACSignal *repeatSignal = [[[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:[NSDate date]];
+        [subscriber sendCompleted];
+        return nil;
+    }] delay:1] repeat];//每隔1s发送一次数据
+    
+    RACSignal *loginSignal = [_prototypeModel loginRequestSignal2];//两次数据发送的间隔为1s
+    
+    //loginSignal接收到第1个值时，输出repeatSignal的当前最新值，当loginSignal收到第2个值时，输出repeatSignal的当前最新值
+    RACSignal *sampleSignal = [repeatSignal sample:loginSignal];
+    [sampleSignal subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    
+    RACSignal *igonoreSignal = [[[_prototypeModel loginRequestSignal]
+                                ignoreValues]//忽略返回值，订阅方接受不到数据
+                                materialize];//将signal的返回值转换为RACEvent类型，此时由于不考虑具体的返回值，因此可以ignoreValues
+    [[igonoreSignal filter:^BOOL(RACEvent *value) {
+        return value.eventType == RACEventTypeCompleted;
+    }] subscribeNext:^(id x) {
+        NSLog(@"igonoreSignal: %@", x);
+    }];
+}
+
+- (void)excuteRetry
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *signal2 = [_prototypeModel loginRequestErrorSignal];
+    
+    //共请求 2+1 次
+    [[signal2 retry:2] subscribeNext:^(id x) {
+        NSLog(@"subscribeNext: %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"error: %@", error);
+    }];
+}
+
+- (void)excuteAny
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *signal2 = [_prototypeModel loginRequestSignal];
+    RACSignal *signal1 = [_prototypeModel loginRequestSignal2];
+    
+    RACSignal *signal3 = @[signal2, signal1].rac_sequence.signal;
+
+    
+    //如果获取数据成功，则返回yes，否则返回no
+    [[[signal3 flattenMap:^RACStream *(id value) {
+        return value;
+    }]
+//       doNext:^(id x) {
+//           NSLog(@"doNext: %@", x);
+//       }]
+      //any]//any后输出YES
+//      any:^BOOL(id object) {//有任意一个返回值为YES，则输出YES，anyBlock不再继续接收输出值
+//          NSLog(@"all: %@", object);
+//          if ([object[@"sex"] integerValue] == 1) {
+//              return NO;
+//          }
+//          return YES;//对应subscribeNext的输出值
+//      }]
+     all:^BOOL(id object) {////有任意一个返回值为NO，则输出NO，allBlock不再继续接收输出值
+         NSLog(@"all: %@", object);
+         if ([object[@"sex"] integerValue] == 1) {
+             return NO;
+         }
+         return YES;//对应subscribeNext的输出值
+     }]
+     subscribeNext:^(id x) {
+         NSLog(@"subscribeNext: %@", x);
+     } error:^(NSError *error) {
+         NSLog(@"error : %@", error);
+     }];
+
+}
+
+
+- (void)excuteGroup
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *signal2 = [_prototypeModel loginRequestSignal2];
+
+    [[signal2 groupBy:^id<NSCopying>(id object) {
+        return @"ttt";//object[@"userName"];//进行分组的key值，不同的key值返回不同的RACGroupedSignal，相同的key值返回相同的RACGroupedSignal
+    } transform:^id(id object) {
+        return object;//返回包含返回值的RACGroupedSignal
+    }]  subscribeNext:^(RACGroupedSignal *x) {
+        //object[@"userName"] 不同值。当前block连续走两次
+        NSLog(@"%@", x);
+        //return @"ttt"; 相同值。以下subscribeNext block将会连续走2次
+        [x subscribeNext:^(id x2) {
+            NSLog(@"%@", x2);
+        }];
+    }];
+}
+
+
+- (void)excuteDeliver
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *signal = [_prototypeModel loginRequestSignal];
+
+//    RACSignal *subscribeOnSignal = [[signal subscribeOn:[RACScheduler scheduler]] map:^id(id value) {
+//        NSLog(@"map : %@", [RACScheduler currentScheduler]);
+//        return value;
+//    }];
+//    
+//    [subscribeOnSignal subscribeNext:^(id x) {
+//        NSLog(@"subscribeNext : %@", [RACScheduler currentScheduler]);
+//    }];
+    RACSignal *scheduledSignal = [[[[[signal
+                                     deliverOn:[RACScheduler scheduler]]//将后续操作放在background线程上
+                                    doNext:^(id x) {
+                                        NSLog(@"doNext scheduler : %@", [RACScheduler currentScheduler]);
+                                    }]
+                                    map:^id(id value) {
+                                        NSLog(@"scheduler : %@", [RACScheduler currentScheduler]);
+                                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:value options:NSJSONWritingPrettyPrinted error:nil];
+                                        return jsonData;
+                                    }]
+                                   deliverOn:[RACScheduler mainThreadScheduler]]//将filter操作放在main线程上
+                                  filter:^BOOL(id value) {
+                                      NSLog(@"scheduler : %@", [RACScheduler currentScheduler]);
+                                      return value ? YES : NO;
+                                  }];//将输出放在background线程上
+    
+    [scheduledSignal subscribeNext:^(id x) {
+        NSLog(@"scheduler putout: %@", [RACScheduler currentScheduler]);
+        NSLog(@"result : %@", x);
+    }];
+}
+
+- (void)excuteTimeOut
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *signal = [_prototypeModel loginRequestSignal2];
+    
+    //设置0.1s超时
+    RACSignal *timeoutSignal = [signal timeout:.1 onScheduler:[RACScheduler mainThreadScheduler]];
+    
+    [timeoutSignal subscribeNext:^(id x) {
+        NSLog(@"intime : %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"timeout: %@", error);
+    }];
+}
+
+- (void)excuteIfElse
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *boolSignal = [_prototypeModel loginRequestBoolSignal];
+    
+    RACSignal *thenSignal = [_prototypeModel loginRequestSignal];
+    RACSignal *elseSignal = [_prototypeModel loginRequestErrorSignal];
+    
+    RACSignal *ifElseSignal = [RACSignal if:boolSignal then:thenSignal else:elseSignal];
+    
+    [ifElseSignal subscribeNext:^(id x) {
+        NSLog(@"thenSignal : %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"elseSignal %@", error);
+    }];
+}
+
+- (void)excuteSwitchCaseDefault
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *keySignal = [_prototypeModel loginRequestStringSignal];
+    
+    RACSignal *valueSignal = [_prototypeModel loginRequestSignal];
+    NSDictionary *dic = @{@"ttt": valueSignal};
+    
+    RACSignal *defaultSignal = [_prototypeModel loginRequestErrorSignal];
+    
+    //如果dic中的key值中包含keySignal的输出值，则订阅dic中对应的valueSignal；否则，订阅defaultSignal
+    RACSignal *switchCaseSignal = [RACSignal switch:keySignal cases:dic default:defaultSignal];
+    
+    [switchCaseSignal subscribeNext:^(id x) {
+        NSLog(@"valueSignal : %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"defaultSignal %@", error);
+    }];
+}
+
+- (void)excuteSwitchToLatest
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *loginSignal = [_prototypeModel loginRequestSignal];
+    RACSignal *loginSignal1 = [_prototypeModel loginRequestSignal1];
+    RACSignal *loginSignal2 = [_prototypeModel loginRequestSignal2];
+
+    //忽略之前的信号输出，只输出最晚输出的那个
+    RACSignal *switchSignal = [@[loginSignal, loginSignal1, loginSignal2].rac_sequence.signal switchToLatest];
+    
+    //只会输出loginSignal2的输出值
+    [switchSignal subscribeNext:^(id x) {
+        NSLog(@"switchSignal : %@", x);
+    }];
+}
+
+- (void)excuteDefer
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    /// 将信号的创建延迟到信号被真正订阅的时候
+    /// This can be used to effectively turn a hot signal into a cold signal.
+    RACSignal *deferSignal = [RACSignal defer:^RACSignal *{
+        return [_prototypeModel loginRequestErrorSignal];
+    }];
+    
+    NSLog(@"begin excute");
+    
+    [deferSignal subscribeNext:^(id x) {
+        NSLog(@"deferSignal: %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"deferSignal error:%@", error);
+    }];
+    
+    NSLog(@"end excute");
+}
+
+- (void)excuteTryBlock
+{
+    if (!_prototypeModel) {
+        _prototypeModel = [LoginViewModel new];
+    }
+    
+    RACSignal *loginSignal = [_prototypeModel loginRequestSignal];
+    
+    //是否输出返回的数据
+    //如果登录成功，并且返回的数据存储成功，输出数据YES；否则提示报错NO。
+    RACSignal *tryBlockSignal = [loginSignal try:^BOOL(id value, NSError *__autoreleasing *errorPtr) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            NSString *homePath = NSHomeDirectory();
+            return [[NSData data] writeToFile:homePath options:NSDataWritingAtomic error:errorPtr];
+        }
+        return NO;
+    }];
+    
+    
+    //返回的数据将会被解析成什么样的数据输出
+    //如果登录成功，并且数据解析正确，输出解析后的数据；否则报错NO
+    RACSignal *tryMapBlockSignal = [loginSignal tryMap:^id(id value, NSError *__autoreleasing *errorPtr) {
+        if([value isKindOfClass:[NSDictionary class]]){
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:value options:NSJSONWritingPrettyPrinted error:errorPtr];
+            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            return jsonString;
+        }
+        return nil;
+    }];
+
+    NSLog(@"begin excute");
+    
+    [tryBlockSignal subscribeNext:^(id x) {
+        NSLog(@"tryBlock: %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"tryBlockSignal error:%@", error);
+    }];
+    
+    [tryMapBlockSignal subscribeNext:^(id x) {
+        NSLog(@"map block: %@", x);
+    } error:^(NSError *error) {
+        NSLog(@"map block error:%@", error);
+    }];
+
+    
+    NSLog(@"end excute");
+}
+
 - (void)excuteCatchErrorSignal
 {
     if (!_prototypeModel) {
@@ -33,6 +439,9 @@
         return @[ @1, @2, @3, @4 ].rac_sequence.signal;
     }];
     
+    //等价于===>
+//    RACSignal *catchErrorSignal = [loginSignal catchTo:@[ @1, @2, @3, @4 ].rac_sequence.signal];
+
     NSLog(@"begin excute");
     
     [catchErrorSignal subscribeNext:^(id x) {
@@ -217,7 +626,7 @@
     RACSignal *collectSignal = [[signal
                                  takeLast:5]//输出后5次
                                  //take:5]//输出前5次
-                                collect];
+                                collect];//收集
     [collectSignal subscribeNext:^(NSArray *x) {
         NSLog(@"collectSignal: %@", x);
     }];
