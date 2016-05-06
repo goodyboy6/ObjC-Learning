@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 2</title>
+    <style type="text/css">
+        /*选择器*/
+        body{
+            font-size: 15px;
+            color: black;
+        }
+        /*标签选择器：html中的标签*/
+        h1{
+            color: black;
+        }
+        /*类选择器：类前要加一个原点*/
+        .phone{
+            color: red;
+        }
+        /*ID选择器：以＃开头。与类选择器的区别很显然，类是一类，多个元素可以属于一类，可以多次出现；ID是唯一标示符，整个文档只能出现一次*/
+        #lovelyGirl{
+            color: darkgreen;
+        }
+        /*子选择器：只作用于第一代子元素*/
+        .birth>q{
+            color: blue;
+            font-size: larger;
+            border: 1px solid red;
+        }
+        .birth>q>span{
+            font-size: small;
+            border: 1px solid blue;
+        }
+        /*包含（后代）选择器：用空格标示*/
+        /*子选择器只作用于第一代后代，包含选择器作用于元素的所有后代。*/
+        /*!!!后代元素会继承父元素的属性!!! .food>li会重写.food li中的属性 https://segmentfault.com/q/1010000002671273 */
+        .food li{
+            color: green;
+            /*font-size: x-small;*//*如果注释掉此处，除了第一代后代，其他的后代li的属性都会继承第一代后代li的属性*/
+        }
+        .food>li{
+            color: red;
+            font-size: larger;
+        }
+        /*通用选择器：使用＊号，匹配html中的所有元素*/
+        *{
+            background-color: antiquewhite;
+        }
+        /*伪类选择器：允许对不存在的标签（其实是标签的某种状态）设置样式。除了a.hover，其他浏览器兼容性不是很好，但css3中有很多伪类选择符*/
+        /*当光标放到链接上时，文字会变成白色*/
+        a:hover{
+            color: white;
+        }
+        /*分组选择符*/
+
+    </style>
+</head>
+<body>
+
+<h1>HTML CSS Part2</h1>
+
+<p>我家宝宝是个很<span id="lovelyGirl">可爱的小姑娘</span>，她经常会做出萌萌哒的表情和动作。有一天她在玩的<span class="phone">手机</span>被我一下藏了起来，她回过头来发现<span class="phone">手机</span>不见了，她摊开双手，看看左手，又看看右手，发出一声<q>咦咦</q>的声音。</p>
+<p class="birth">没生宝宝之前，我家养了只猫，没事就和猫玩玩，老妈从老家过来后就跟我说：<q>生个<span>宝宝</span>比小猫好玩多了</q>。开始真不信，但生了宝宝后，总是满满的幸福感，<a title="点我查看" href="HTML%20Tag%20Part1.html">这种幸福感是从来没有过的。</a></p>
+
+<p>宝宝爱吃以下食物：</p>
+<ul class="food">
+    <li>
+        水果
+        <ul>
+            <li>香蕉</li><li>芒果</li><!--插入到无序列表-->
+        </ul>
+    </li>
+    <li>蔬菜</li>
+    <li>牛奶</li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PART 2</title>
+    <style>
+        div{
+            background-color: antiquewhite;
+        }
+        <!--需要用逗号间隔-->
+        table tr,td,th{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Part 2</h1>
+
+<!--可以为这个独立的模块这事一个名称，使用id属性为div提供一个唯一的名称-->
+<div id="headlineNews">
+    <h2>使用div划分独立的逻辑部分，相当于一个容器</h2>
+
+    <!--ul为unorder list的缩写， ol为order list的缩写-->
+    <h4>使用ul-li展示新闻资讯，没有前后顺序</h4>
+    <ul>
+        <li>鹿晗惨了，被墙</li>
+        <li>欢乐颂挺好看，帅哥靓女好多</li>
+        <li>老婆喜欢欢乐颂里面的<q>老干部</q></li>
+    </ul>
+
+    <h4>使用ol-li展示有顺序的资讯</h4>
+    <ol>
+        <li>鹿晗惨了，被墙</li>
+        <li>欢乐颂挺好看，帅哥靓女好多</li>
+        <li>老婆喜欢欢乐颂里面的<q>老干部</q></li>
+    </ol>
+</div>
+
+<div id="deviceList">
+    <!--
+    tbody:table body 当表格内容非常多时，表格会下载一点显示一点，如果加上tbody标签后，等全部下载时才会显示
+     tr:table row 有几个tr，就有几行
+      td:table data 表格中的一个单元格，有几对tr，就是几列
+       th:table header 表格表头
+       -->
+    <h2>创建表格的四元素table、tbody、tr、th、td</h2>
+    <!---summary为表格添加摘要-->
+    <table summary="这里是摘要">
+        <!--captial为表格添加标题-->
+        <caption>这里是表格标题</caption>
+        <!--3行，3列-->
+        <tbody>
+        <tr>
+            <th>这是表头1</th>
+            <th>这是表头2</th>
+        </tr>
+        <tr>
+            <td>00</td>
+            <td>01</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>21</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+</html>

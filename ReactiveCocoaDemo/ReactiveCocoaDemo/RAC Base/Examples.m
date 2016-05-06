@@ -16,7 +16,7 @@
 
 - (void)excuteExamples
 {
-    [self excuteFlattenMap];
+    [self excutePublish];
 }
 
 #pragma mark - sub example
@@ -61,19 +61,94 @@
      /// Trying to retrieve a value from the sequence which has not yet been sent will
      /// block.
      @property (nonatomic, strong, readonly) RACSequence *sequence;
-     
-     /// Creates and returns a multicast connection. This allows you to share a single
-     /// subscription to the underlying signal.
-     - (RACMulticastConnection *)publish;
-     
-     /// Creates and returns a multicast connection that pushes values into the given
-     /// subject. This allows you to share a single subscription to the underlying
-     /// signal.
-     - (RACMulticastConnection *)multicast:(RACSubject *)subject;
-
      */
 }
 
+#pragma mark - publish multicast:
+- (void)excutePublish
+{
+    //http://www.jianshu.com/p/a0a821a2480f
+    //当一个connection建立之后，这个signal就是hot的，在订阅之前已经处于活动状态。
+    
+    RACSignal *signal = [[RACSignal return:@"hello" ] doNext:^ (id nextValue) {
+        NSLog(@"nextValue:%@", nextValue);
+    }];
+    
+    
+//    [signal subscribeNext:^(id x) {
+//        NSLog(@"x %@", x);
+//    }];
+//    [signal subscribeNext:^(id x) {
+//        NSLog(@"xx %@", x);
+//    }];
+    //output
+//    2016-04-28 17:00:33.832 ReactiveCocoaDemo[21710:1551589] nextValue:hello
+//    2016-04-28 17:00:33.833 ReactiveCocoaDemo[21710:1551589] x hello
+//    2016-04-28 17:00:33.833 ReactiveCocoaDemo[21710:1551589] nextValue:hello
+//    2016-04-28 17:00:33.833 ReactiveCocoaDemo[21710:1551589] xx hello
+    
+//    RACMulticastConnection *connection = [signal publish];
+//    [connection.signal subscribeNext:^(id nextValue) {
+//        NSLog(@"First %@", nextValue);
+//    }];
+//    [connection.signal subscribeNext:^(id nextValue) {
+//        NSLog(@"Second %@", nextValue);
+//    }];
+//    [connection connect];
+    //output
+//    2016-04-28 17:00:33.833 ReactiveCocoaDemo[21710:1551589] nextValue:hello
+//    2016-04-28 17:00:33.833 ReactiveCocoaDemo[21710:1551589] First hello
+//    2016-04-28 17:00:33.834 ReactiveCocoaDemo[21710:1551589] Second hello
+
+//    RACMulticastConnection *connection = [signal multicast:[RACReplaySubject subject]];//多播    //等价于==>replay
+//    [connection connect];
+//    [connection.signal subscribeNext:^(id nextValue) {
+//        NSLog(@"First %@", nextValue);
+//    }];
+//    [connection.signal subscribeNext:^(id nextValue) {
+//        NSLog(@"Second %@", nextValue);
+//    }];
+    
+    RACMulticastConnection *connection = [signal multicast:[RACReplaySubject subject]];//多播    //等价于==>replay
+    RACSignal *connectionSignal = [connection autoconnect];
+    [connectionSignal subscribeNext:^(id nextValue) {
+        NSLog(@"First %@", nextValue);
+    }];
+    [connectionSignal subscribeNext:^(id nextValue) {
+        NSLog(@"Second %@", nextValue);
+    }];
+
+}
+
+- (void)excuteReplay
+{
+    __block NSInteger count = 0;
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        NSLog(@"++count: %@", @(++count));
+        [subscriber sendNext:@(count)];
+        return nil;
+    }];
+    
+    RACSignal *replaySignal = [signal
+                               //replay];//调用replay后，block会立即执行，以后的subscribe都是返回当前的执行结果。只执行一次。
+                               replayLast];//返回上一次信号执行的结果
+    //replayLazily];//不立即执行，延后到在第一次subscribe之前调用
+    
+    NSLog(@"begin excute");
+    
+    //同步执行
+    [replaySignal subscribeNext:^(id x) {
+        NSLog(@"output1 : %@", x);
+    }];
+    
+    [replaySignal subscribeNext:^(id x) {
+        NSLog(@"output2 : %@", x);
+    }];
+    
+    NSLog(@"end excute");
+}
+
+#pragma mark -
 - (void)excuteFlattenMap
 {
     RACSignal *signal1 = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
@@ -84,6 +159,11 @@
     [[signal1 flattenMap:^RACStream *(id value) {
         return [RACSignal return:value];
     }] subscribeNext:^(id x) {
+        NSLog(@"%@", x);
+    }];
+    
+    //等价于===>
+    [[signal1 flatten] subscribeNext:^(id x) {
         NSLog(@"%@", x);
     }];
 }
@@ -293,6 +373,7 @@
     }];
 }
 
+#pragma mark -
 - (void)excuteIfElse
 {
     if (!_prototypeModel) {
@@ -355,6 +436,7 @@
     }];
 }
 
+#pragma mark -
 - (void)excuteDefer
 {
     if (!_prototypeModel) {
@@ -710,65 +792,6 @@
         NSLog(@"output: %@", x);
     } error:^(NSError *error) {
         NSLog(@"error: %@", error);
-    }];
-    
-    NSLog(@"end excute");
-}
-
-
-- (void)excuteReplayLast
-{
-    RACSubject *letters = [RACSubject subject];
-    
-    RACSignal *replaySignal = [letters
-                               //replay];//调用replay后，block会立即执行，以后的subscribe都是返回当前的执行结果。只执行一次。
-                               replayLast];//返回上一次block执行的结果
-    //replayLazily];//不立即执行，延后到在第一次subscribe之前调用
-    
-    NSLog(@"begin excute");
-    
-    [letters sendNext:@"A"];
-    [letters sendNext:@"B"];
-
-    //同步执行
-    //B
-    [replaySignal subscribeNext:^(id x) {
-        NSLog(@"output1 : %@", x);
-    }];
-    
-    [letters sendNext:@"C"];
-
-    //C
-    [replaySignal subscribeNext:^(id x) {
-        NSLog(@"output2 : %@", x);
-    }];
-    
-    NSLog(@"end excute");
-}
-
-- (void)excuteReplay
-{
-    __block NSInteger count = 0;
-    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSLog(@"++count: %@", @(++count));
-        [subscriber sendNext:@(count)];
-        return nil;
-    }];
-    
-    RACSignal *replaySignal = [signal
-                               //replay];//调用replay后，block会立即执行，以后的subscribe都是返回当前的执行结果。只执行一次。
-                               replayLast];//返回上一次信号执行的结果
-                               //replayLazily];//不立即执行，延后到在第一次subscribe之前调用
-    
-    NSLog(@"begin excute");
-    
-    //同步执行
-    [replaySignal subscribeNext:^(id x) {
-        NSLog(@"output1 : %@", x);
-    }];
-    
-    [replaySignal subscribeNext:^(id x) {
-        NSLog(@"output2 : %@", x);
     }];
     
     NSLog(@"end excute");

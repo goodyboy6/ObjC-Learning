@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+
+<h1>表单标签</h1>
+<p>使用表单标签实现用户交互</p>
+
+<!--表单可以把浏览者输入的数据传输到服务器-->
+<p>method: get/post</p>
+<p>action:浏览者表单中输入的数据<strong>被传送到的地方</strong></p>
+<p>所有表单控件必须放在form标签中，如文本框、文本域、按钮、单选、复选框等</strong></p>
+
+<!--当需要在表单中键入字母、数字时，就会用到文本输入框：input-->
+<!--name为文本框命名，方便后台php、asp使用-->
+<!--value="输入框的默认值. 否则显示placeholder"-->
+<h2>input:文本输入框、密码输入框</h2>
+<form method="post" action="HTML%20Tag%20Part1.html">
+
+    <!--点击label时，浏览器会自动将焦点转移到和标签相关联的表单上， 使用for属性--->
+    <label for="usernameID">用户名:</label>
+    <input type="text" name="username" placeholder="输入为明文" id="usernameID">
+    <label for="passwordID">密码：</label>
+    <input type="password" name="pass" placeholder="输入为密文" id="passwordID">
+    <br>
+
+    <!---单选框radio, 复选框checkbox----->
+    <!---value为提交到服务器的值，后台程序php使用； name以备后台程序asp、php使用--->
+    <!---!!!单选框的name必须一致才能起到单选效果-->
+    <label>男</label>
+    <input type="radio" name="gender" value="1" checked>
+    <label>女</label>
+    <input type="radio" name="gender" value="0">
+
+    <br>
+    <!--在表单中只有两种按钮可以使用：提交按钮和重置按钮-->
+    <input type="submit" name="submit">
+    <input type="reset" name="reset">
+</form>
+
+
+<h2>textarea:文本域，支持多行文本</h2>
+<form method="post" action="HTML%20Tag%20Part1.html">
+    <label>联系我们</label><br>
+    <!--这两个参数可以使用css中的width和height来代替-->
+    <textarea rows="5" name="comments" cols="70" placeholder="在这里输入内容..."></textarea>
+</form>
+
+<!--selected默认选取-->
+<!--value为提交到服务器的值，后台程序php使用； name以备后台程序asp、php使用--->
+<h2>select/option: 下拉列表框，支持多选、单选</h2>
+<form method="post" action="HTML%20Tag%20Part1.html">
+    <label>你的爱好：单选</label>
+    <!--默认为单选 加入属性multiple后，就为多选-->
+    <select multiple>
+        <option value="足球">足球</option>
+        <option value="乒乓球" selected>乒乓球</option>
+        <option value="桌球" selected>桌球</option>
+    </select>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+/*cascading style sheets 层叠样式表*/
+
+/*参见Tag Part1*/
+/*内置样式css样式: <p style="color: crimson; font-size: larger">p表示段落，字体为红色</p>*/
+/*嵌入式css样式：将css样式代码写在<style type="text/css"></style>之间 嵌入式一般写在<header></header>标签之间*/
+/*外联式css样式：<link href="style.css" rel="stylesheet" type="text/css"></link>，为固定写法*/
+/*rel: relationship 当前文档和链接文档之间的关系*/
+
+p{/*称为选择器／选择符*/
+    font-size: medium;
+    color: darkgreen;
+    font-weight: lighter;
+}
