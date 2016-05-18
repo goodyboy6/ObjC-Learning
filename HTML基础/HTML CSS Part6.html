@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS之布局模型</title>
+    <style type="text/css">
+        /*CSS包含3中基本布局模型：flow流动模型（默认）、layer层模型和float浮动模型*/
+
+        /*flow流动模型*/
+        /*
+        特点：
+        1.块状元素会在所处的包含元素内自上而下垂直分布，因为默认情况下块状元素的宽度都是100%；
+        2.内联元素会在所处的包含元素内自左至右水瓶显示；
+        */
+#flow{
+    background-color: aqua;
+
+}
+
+        /*float浮动模型：让两个块状元素并排显示。只有left、right两个属性*/
+        p{
+            width: 500px;
+            height: 50px;
+            padding: 20px;
+            margin:10px;
+            border: solid 2px red;
+            background-color: aqua;
+        }
+        #float1{
+            -moz-box-sizing: content-box;
+             box-sizing: content-box;
+            float: left;
+         }
+        #float2{
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: right;
+        }
+
+        /*layer层布局：元素在网页中的精确定位postioning。包括：绝对定位、相对定位、固定定位*/
+        /*由于网页的尺寸动态性，层布局未收到热捧，但在局部使用有其方便之处*/
+        
+        
+        /*绝对定位：position:absolute，作用是将元素从文档流中拖出来，，然后使用left、right、top、bottom属性相对于其最近的具有定位属性的父包含块进行据对定位。
+        如果咩有这样的父包含块，则相对于body，即浏览器窗口*/
+#absolute{
+    position: absolute;
+    height: 50px;
+    left: 100px;
+    right: 100px;
+    bottom: 30px;
+    background-color: lightgray;
+    z-index: -1;
+}
+        
+        /*相对定位：postition:relative：相对于其原来的位置的定位*/
+        #relative{
+            position: relative;
+            background-color: cornflowerblue;
+            width: 200px;
+            top: 40px;
+            right: 0px;
+            left: 100px;
+            bottom: 0px;
+        }
+
+        /*固定定位：和absolute类似，但直接相对于body，和和absolute相对于body时的场景相同。等价于：background-attachment：fixed*/
+#fixed{
+    position: fixed;
+    background-color: aqua;
+    bottom: 20px;
+    height: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+
+        /*如何实现相对于其他元素定位？？？
+        局部定位：相对于父元素使用abslute定位时，父类必须为relative。暂时认为是规范！！！！！
+        如下：将一段文字放在一张图片的底部
+        */
+#box1{
+    width: 375px;
+    position: relative;
+}
+        #box2{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+
+            padding-bottom: 20px;
+            margin-bottom: 0px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h2 id="flow"><span>flow</span> <a href="" target="_blank">test</a>. </h2>
+
+    <div style="background-color: chocolate; width: 100%; height: 120px;">
+        <p id="float1">float content-box</p>
+        <p id="float2">float border-box</p>
+    </div>
+
+    <div id="absolute">这是一段position:absolute的文字</div>
+    <h3 id="relative">这是一段postition:relative的标题</h3>
+    <div id="fixed">这是一段postition:fixed的文字</div>
+
+<div id="box1">
+    <img src="image/java.png">
+    <h5 id="box2">中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。中间这个女生不错哦，加油吧，程序猿。</h5>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS之盒模型</title>
+    <style type="text/css">
+        /*块状元素*/
+        /*常用的块状元素：<div> <p> <h1>...<h6> <ol> <ul> <dl>??  <table> <address> <blockquote> <form>*/
+        /*
+        特点：
+        1.每个元素从新的一行开始、其后的元素也另起一行
+        2.元素的宽高、行高及顶底边距都可以设置；
+        3.元素宽度不设置的情况下，为父容器的100%
+        */
+a{
+    background-color: aqua;
+    display: block;/*将元素显示为块级元素*/
+}
+        /*内联元素或行内元素*/
+        /*常用的行内元素：<a> <span> <br> <i> <em> <strong> <label> <q> <var> <cite> <code>*/
+        /*
+        特点：
+        1.和其他元素在一行
+        2.元素的宽高和顶底部边距不可设置
+        3.元素的宽高就是它包含的文字或图片的宽度，不可改变
+        */
+p{
+    display: inline;/*将块状元素转为内联元素*/
+}
+        /*内联块状元素*/
+        /*常用的块状元素：<img> <input>*/
+        /*
+        特点：
+        1.和其他元素在一行
+        2.元素的宽高、行高及顶底边距都可以设置；
+        3.元素宽度不设置的情况下，为父容器的100%
+        */
+span{
+    background-color: #666666;
+    width:  200px;
+    height: 2em;
+    display: inline-block;
+}
+
+        /*盒模型box sizing：https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-sizing*/
+        /*包括：content－box和border－box，默认为content－box*/
+        /*content-box:只包括content， 不包括padding、border、magin*/
+        /*border-box:包括border及以内（包括内边距padding），不包括外边距margin*/
+
+#contentBox{
+    background-color: #666666;
+    border: solid 20px red;
+    display: block;
+
+    margin: 40px;
+    padding: 10px;
+    width: 50px;
+    height: 100px;
+
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+
+    display: inline-block;
+}
+        #borderBox{
+            background-color: #666666;
+            border: solid 20px red;
+            display: block;
+
+            margin: 40px;
+            padding: 10px;
+            width: 50px;
+            height: 100px;
+
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<h3>盒模型<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-sizing">点击这里打开</a></h3>
+<p id="contentBox">content-box盒模型</p>
+<p id="borderBox">border-box盒模型</p>
+
+<p>this <span>is a</span> parameter.</p>
+<!--<h2>中间的<p>妹子不错</p><img src="image/java.png"></h2>-->
+
+</body>
+</html>

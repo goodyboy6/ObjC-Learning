@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CSS之继承、层叠和特殊性 </title>
+    <style type="text/css">
+        /*继承：p元素样式将应用于p及其后代标签，即后代标签将会继承父标签样式*/
+        /*有些css样式不具有继承性，比如border*/
+        p{
+            color: red;
+            border: blue dashed 1px;
+        }
+        span{
+            font-size: larger;
+        }
+
+        /*特殊性:浏览器根据权制来判断使用哪种css样式*/
+        /*标签的权制为1、类选择符的权值为10，ID选择符的权值为100*/
+        /*p #lovely{/!*权值为1+100 ＝101， 所以最终lovely显示yellow颜色*!/*/
+            /*color: yellow;*/
+        /*}*/
+        p.girl{/*权值为10*/
+            color: black;
+        }
+        #lovely{/*权值为100*/
+            color: yellow;
+        }
+
+        /*层叠：样式权值相同时，按照先后顺序来决定，处于最后面的scc样式将被应用*/
+        /*依据这个规则，內联样式 > 嵌入式样式 > 外部样式表*/
+        /*p #lovely{/!*权值为1+100 ＝101， 所以最终lovely显示blue颜色*!/*/
+            /*color: blue;*/
+        /*}*/
+
+        /*重要性：!important 设置当前标签样式为最高权值，所有的p标签中这个color样式权值最高*/
+        /*当不设置样式时，浏览器会用默认样式，用户也会设置自己的样式，比如字体大小。 这里的优先级为：浏览器默认样式 < 网页制作者样式 < 用户设置的样式 */
+        /*!important权值高于用户设置的样式！！！*/
+        p{
+            color: red !important;
+            border: blue dashed 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--p元素样式将应用于p及其后代标签，比如这里的span-->
+<p> She is a <span> lovely </span> girl. </p>
+
+<p class="girl"> She is a <span id="lovely">lovely</span> girl.</p>
+
+</body>
+</html>
