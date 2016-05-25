@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS之基础</title>
+    <style type="text/css">
+
+        p{
+            /*  盒模型代码简写  */
+            padding: 10px 20px 0px 5px;/* 上右下左 */
+            padding: 10px 10px 10px 10px; /* ===> padding: 10px;  */
+            padding: 10px 20px 10px 20px;/* ==> padding:10px, 20px;  */
+            padding: 10px 20px 30px 20px; /* ==>padding:10px, 20px, 30px; */
+
+            /*  颜色值缩写  */
+            border-color: #664433;/* ==> border-color:#643 */
+
+            /*  字体缩写
+                1.至少指定font-size, font-family；
+                2.font-size和line-height要加斜杠 /   */
+            font: italic 44px/1.4em Microsoft-YaHei;
+
+            /* 颜色值 */
+            background-color: red;
+            background-color: #664433;
+            background-color: rgb(133, 33, 3);
+            background-color: rgb(33%, 22%, 11%);/* 33%*255 22%*255 11%*255 */
+
+            /*长度值*/
+            /*常用的包括px、em、％百分比。 都是相对单位*/
+            /*px：CSS中假设90px＝1英寸，实际情况中会使用显示器的实际像素值，大多数在使用*/
+            border: 20px red solid;
+            /*em：本元素给定字体的font-size值。*/
+            font-size: 12px;
+            text-indent: 2em;/*表示首行缩进24px，即两个字体的大小。！！！*/
+            font-size: 2em;/* 如果font-size设置为em， 则以父元素的font-size为基础*/
+            /*％百分比：*/
+            font-size: 12px;
+            line-height: 50%;/*行间距为字体的50%*/
+
+        }
+
+    </style>
+</head>
+<body>
+
+<p>这是一个段落。</p>
+
+</body>
+</html>
