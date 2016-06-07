@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平居中设置</title>
+    <style type="text/css">
+
+        p{
+            background: orangered;
+        }
+
+        /* 行内元素：如文本、图片等，是通过父元素设置text-align:center来设置的 */
+        #textCenter{
+            text-align: center;
+        }
+
+        /* 块状元素：定宽块状元素（通过width设置）、不定宽块状元素 */
+
+        /* 定宽块状元素：可以设置左右margin为auto来实现居中 */
+        #fixWidthCenter{
+             width: 150px;
+             margin-left: auto;
+             margin-right: auto;
+        }
+
+        /* 不定宽块状元素：有下面几种常用方法 */
+        /*
+        1.加入table标签：table的长度由其内文本的长度决定，相当于是定宽，然后利用定宽的margin:auto设置
+        2.设置display:inline方法
+        3.设置postion:relative和left:50%，利用相对定位将元素左移50%，达到居中
+        */
+        #flexibleWidthCenter1{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #flexibleWidthCenter2{
+            background-color: red;
+            display: inline;
+            text-align: center;
+        }
+
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+<p id="textCenter">我想要在父容器中水平居中。<img src="image/java.png"></p>
+<p id="fixWidthCenter">我是固定宽度块状元素，我想要在父容器中水平居中。</p>
+
+<!-- 不定宽块状元素:加入table标签 -->
+<table id="flexibleWidthCenter1">
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li>我是不固定宽度块状元素1，西瓜</li>
+                    <li>西瓜</li>
+                    <li>西瓜</li>
+                    <li>西瓜</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="flexibleWidthCenter2">
+    <ol>
+        <li>我是不固定宽度块状元素1，西瓜</li>
+        <li>西瓜</li>
+        <li>西瓜</li>
+        <li>西瓜</li>
+    </ol>
+</div>
+
+
+
+
+</body>
+</html>
