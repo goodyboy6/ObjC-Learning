@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		315D9DB41D6AD26900DE45AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D9DB31D6AD26900DE45AB /* main.m */; };
+		315D9DB71D6AD26900DE45AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D9DB61D6AD26900DE45AB /* AppDelegate.m */; };
+		315D9DBA1D6AD26900DE45AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D9DB91D6AD26900DE45AB /* ViewController.m */; };
+		315D9DBD1D6AD26900DE45AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315D9DBB1D6AD26900DE45AB /* Main.storyboard */; };
+		315D9DBF1D6AD26900DE45AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 315D9DBE1D6AD26900DE45AB /* Assets.xcassets */; };
+		315D9DC21D6AD26900DE45AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315D9DC01D6AD26900DE45AB /* LaunchScreen.storyboard */; };
+		31C0354B1D6BE34D0023273F /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31C0354A1D6BE34D0023273F /* ShareViewController.xib */; };
+		31C035521D6BF5EC0023273F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C035501D6BF5EC0023273F /* HomeViewController.m */; };
+		31E8032B1D6AD637003D9AAA /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E8032A1D6AD637003D9AAA /* ShareViewController.m */; };
+		31E803321D6AD637003D9AAA /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 31E803271D6AD637003D9AAA /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		31E803391D6AD9B6003D9AAA /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E803381D6AD9B6003D9AAA /* FriendsTableViewController.m */; };
+		31E803431D6AE184003D9AAA /* iMac-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E803411D6AE184003D9AAA /* iMac-icon@2x.png */; };
+		31E803441D6AE184003D9AAA /* iMac-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E803421D6AE184003D9AAA /* iMac-icon@3x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31E803301D6AD637003D9AAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 315D9DA71D6AD26900DE45AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31E803261D6AD637003D9AAA;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		315D9DF11D6AD26900DE45AB /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31E803361D6AD637003D9AAA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				31E803321D6AD637003D9AAA /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		315D9DAF1D6AD26900DE45AB /* iOS8Extension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS8Extension.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		315D9DB31D6AD26900DE45AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		315D9DB51D6AD26900DE45AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		315D9DB61D6AD26900DE45AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		315D9DB81D6AD26900DE45AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		315D9DB91D6AD26900DE45AB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		315D9DBC1D6AD26900DE45AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		315D9DBE1D6AD26900DE45AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		315D9DC11D6AD26900DE45AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		315D9DC31D6AD26900DE45AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31C0354A1D6BE34D0023273F /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
+		31C0354F1D6BF5EC0023273F /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		31C035501D6BF5EC0023273F /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		31E803271D6AD637003D9AAA /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		31E803291D6AD637003D9AAA /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		31E8032A1D6AD637003D9AAA /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		31E8032F1D6AD637003D9AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31E803371D6AD9B6003D9AAA /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		31E803381D6AD9B6003D9AAA /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		31E803411D6AE184003D9AAA /* iMac-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iMac-icon@2x.png"; sourceTree = "<group>"; };
+		31E803421D6AE184003D9AAA /* iMac-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iMac-icon@3x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		315D9DAC1D6AD26900DE45AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31E803241D6AD637003D9AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		315D9DA61D6AD26900DE45AB = {
+			isa = PBXGroup;
+			children = (
+				315D9DB11D6AD26900DE45AB /* iOS8Extension */,
+				31E803281D6AD637003D9AAA /* ShareExtension */,
+				315D9DB01D6AD26900DE45AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		315D9DB01D6AD26900DE45AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				315D9DAF1D6AD26900DE45AB /* iOS8Extension.app */,
+				31E803271D6AD637003D9AAA /* ShareExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		315D9DB11D6AD26900DE45AB /* iOS8Extension */ = {
+			isa = PBXGroup;
+			children = (
+				315D9DB51D6AD26900DE45AB /* AppDelegate.h */,
+				315D9DB61D6AD26900DE45AB /* AppDelegate.m */,
+				315D9DB81D6AD26900DE45AB /* ViewController.h */,
+				315D9DB91D6AD26900DE45AB /* ViewController.m */,
+				315D9DBB1D6AD26900DE45AB /* Main.storyboard */,
+				315D9DBE1D6AD26900DE45AB /* Assets.xcassets */,
+				315D9DC01D6AD26900DE45AB /* LaunchScreen.storyboard */,
+				315D9DC31D6AD26900DE45AB /* Info.plist */,
+				315D9DB21D6AD26900DE45AB /* Supporting Files */,
+			);
+			path = iOS8Extension;
+			sourceTree = "<group>";
+		};
+		315D9DB21D6AD26900DE45AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				315D9DB31D6AD26900DE45AB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31E803281D6AD637003D9AAA /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				31E803291D6AD637003D9AAA /* ShareViewController.h */,
+				31E8032A1D6AD637003D9AAA /* ShareViewController.m */,
+				31C0354A1D6BE34D0023273F /* ShareViewController.xib */,
+				31C0354F1D6BF5EC0023273F /* HomeViewController.h */,
+				31C035501D6BF5EC0023273F /* HomeViewController.m */,
+				31E803411D6AE184003D9AAA /* iMac-icon@2x.png */,
+				31E803421D6AE184003D9AAA /* iMac-icon@3x.png */,
+				31E803371D6AD9B6003D9AAA /* FriendsTableViewController.h */,
+				31E803381D6AD9B6003D9AAA /* FriendsTableViewController.m */,
+				31E8032F1D6AD637003D9AAA /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		315D9DAE1D6AD26900DE45AB /* iOS8Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 315D9DF21D6AD26900DE45AB /* Build configuration list for PBXNativeTarget "iOS8Extension" */;
+			buildPhases = (
+				315D9DAB1D6AD26900DE45AB /* Sources */,
+				315D9DAC1D6AD26900DE45AB /* Frameworks */,
+				315D9DAD1D6AD26900DE45AB /* Resources */,
+				315D9DF11D6AD26900DE45AB /* Embed Watch Content */,
+				31E803361D6AD637003D9AAA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31E803311D6AD637003D9AAA /* PBXTargetDependency */,
+			);
+			name = iOS8Extension;
+			productName = iOS8Extension;
+			productReference = 315D9DAF1D6AD26900DE45AB /* iOS8Extension.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31E803261D6AD637003D9AAA /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31E803331D6AD637003D9AAA /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				31E803231D6AD637003D9AAA /* Sources */,
+				31E803241D6AD637003D9AAA /* Frameworks */,
+				31E803251D6AD637003D9AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = 31E803271D6AD637003D9AAA /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		315D9DA71D6AD26900DE45AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = yixiaoluo;
+				TargetAttributes = {
+					315D9DAE1D6AD26900DE45AB = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = U9GPEY2446;
+						ProvisioningStyle = Automatic;
+					};
+					31E803261D6AD637003D9AAA = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = U9GPEY2446;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 315D9DAA1D6AD26900DE45AB /* Build configuration list for PBXProject "iOS8Extension" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 315D9DA61D6AD26900DE45AB;
+			productRefGroup = 315D9DB01D6AD26900DE45AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				315D9DAE1D6AD26900DE45AB /* iOS8Extension */,
+				31E803261D6AD637003D9AAA /* ShareExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		315D9DAD1D6AD26900DE45AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315D9DC21D6AD26900DE45AB /* LaunchScreen.storyboard in Resources */,
+				315D9DBF1D6AD26900DE45AB /* Assets.xcassets in Resources */,
+				315D9DBD1D6AD26900DE45AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31E803251D6AD637003D9AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31C0354B1D6BE34D0023273F /* ShareViewController.xib in Resources */,
+				31E803431D6AE184003D9AAA /* iMac-icon@2x.png in Resources */,
+				31E803441D6AE184003D9AAA /* iMac-icon@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		315D9DAB1D6AD26900DE45AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				315D9DBA1D6AD26900DE45AB /* ViewController.m in Sources */,
+				315D9DB71D6AD26900DE45AB /* AppDelegate.m in Sources */,
+				315D9DB41D6AD26900DE45AB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31E803231D6AD637003D9AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31E8032B1D6AD637003D9AAA /* ShareViewController.m in Sources */,
+				31E803391D6AD9B6003D9AAA /* FriendsTableViewController.m in Sources */,
+				31C035521D6BF5EC0023273F /* HomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31E803311D6AD637003D9AAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31E803261D6AD637003D9AAA /* ShareExtension */;
+			targetProxy = 31E803301D6AD637003D9AAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		315D9DBB1D6AD26900DE45AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				315D9DBC1D6AD26900DE45AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		315D9DC01D6AD26900DE45AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				315D9DC11D6AD26900DE45AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		315D9DE81D6AD26900DE45AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		315D9DE91D6AD26900DE45AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		315D9DF31D6AD26900DE45AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U9GPEY2446;
+				INFOPLIST_FILE = iOS8Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba-inc.crm223";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		315D9DF41D6AD26900DE45AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U9GPEY2446;
+				INFOPLIST_FILE = iOS8Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba-inc.crm223";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		31E803341D6AD637003D9AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = U9GPEY2446;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba-inc.crm223.-TodayWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		31E803351D6AD637003D9AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = U9GPEY2446;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alibaba-inc.crm223.-TodayWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		315D9DAA1D6AD26900DE45AB /* Build configuration list for PBXProject "iOS8Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315D9DE81D6AD26900DE45AB /* Debug */,
+				315D9DE91D6AD26900DE45AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		315D9DF21D6AD26900DE45AB /* Build configuration list for PBXNativeTarget "iOS8Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				315D9DF31D6AD26900DE45AB /* Debug */,
+				315D9DF41D6AD26900DE45AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31E803331D6AD637003D9AAA /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31E803341D6AD637003D9AAA /* Debug */,
+				31E803351D6AD637003D9AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 315D9DA71D6AD26900DE45AB /* Project object */;
+}

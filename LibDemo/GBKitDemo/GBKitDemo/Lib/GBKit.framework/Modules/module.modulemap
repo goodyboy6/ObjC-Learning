@@ -1,6 +1,0 @@
-framework module GBKit {
-  umbrella header "GBKit.h"
-
-  export *
-  module * { export * }
-}

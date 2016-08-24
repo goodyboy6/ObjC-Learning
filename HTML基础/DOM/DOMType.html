@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="headerID">
+    <!--this is comments node-->
+    <meta charset="UTF-8">
+    <title> DOM类型 </title>
+</head>
+<body>
+    <h1 id="h1">DOM类型</h1>
+
+<script>
+    window.onload = function() {
+        /*元素节点*/
+        var h1 = document.getElementById("h1");
+        console.log(h1.nodeName, + "+" + h1.nodeType);
+        /*属性节点*/
+        console.log(h1.attributes[0].nodeName + "+" + h1.attributes[0].nodeType);
+        /*文本节点*/
+        console.log(h1.childNodes[0].nodeName + "+" + h1.childNodes[0].nodeType +"+"+h1.childNodes[0].nodeValue);
+        /*注释节点*/
+        var commentNode = document.getElementById("headerID").childNodes[1];
+        console.log(commentNode.nodeName + "+" + commentNode.nodeType + "+" + commentNode.nodeValue);
+        /*文档类型节点*/
+        console.log(document.doctype.nodeName + "＋" + document.doctype.nodeType);
+        /*文档节点*/
+        console.log(document.nodeName + "＋" + document.nodeType);
+        /*文档片段节点*/
+        var fragment = document.createDocumentFragment();
+        for (var i = 0; i < 10; i++){
+            var h2 = document.createElement('h3');
+            var textNode = document.createTextNode("this is h3");
+            textNode.tagName = "ttt" + i;
+            h2.appendChild(textNode);
+            fragment.appendChild(h2);
+        }
+        var allNodes = fragment.childNodes;
+        document.body.appendChild(fragment);
+        var allNodes22 = fragment.childNodes;
+
+        setTimeout("print111()", 2);
+    };
+
+    function print111(){
+        var ttt1 = document.getElementsByTagName("ttt1");
+        if (ttt1 != undefined){
+            console.log("---" + ttt1);
+        }
+    }
+</script>
+
+</body>
+</html>
