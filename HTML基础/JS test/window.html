@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--<form id="browserNameID">-->
+    <!--<input type="button" onclick="getBrowserName()" value="getBrowserName">-->
+    <!--<input type="text" style="background-color: red">-->
+<!--</form>-->
+
+<h4>操作成功</h4>
+<p>5秒后返回主页 &nbsp <a onclick="restart()" style="color: blue; text-decoration:underline">返回</a></p>
+
+<script type="text/javascript">
+
+    /*
+    var timer;
+    function restart(){
+        if (timer != undefined){
+            seconds = 0;
+            console.log("clear timer");
+            clearTimeout(timer);
+        }
+        timer = setTimeout(function(){
+            window.location = "http://baidu.com";
+        }, 5000);
+    }
+
+    restart();
+
+    var seconds = 0;
+    setInterval(function(){
+        ++seconds;
+        console.log(seconds);
+    }, 1000);
+    */
+
+     //Screen
+    //document.documentElement.clientWidth === window.innerWidth
+    document.write("" +  screen.availWidth + "&nbsp" + screen.availHeight + "<br>"
+    + screen.width + "&nbsp" + screen.height + "<br>"
+    + screen.colorDepth + "&nbsp" + screen.pixelDepth + "<br><br><br><br>");
+
+    document.write( document.body.clientWidth + "&nbsp" + document.body.clientHeight + "<br>"
+            + document.documentElement.clientWidth + "&nbsp" + document.documentElement.clientHeight + "<br><br><br><br>");
+
+    document.write(window.innerWidth + "&nbsp" + innerHeight + "<br><br><br><br>");
+
+    var w = document.documentElement.scrollWidth || document.body.scrollWidth;
+    var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+    document.write(w + '&nbsp' + h + "<br><br>");
+    document.write(document.documentElement.scrollWidth + '&nbsp' + document.body.scrollWidth + '&nbsp&nbsp&nbsp&nbsp' + document.documentElement.scrollHeight + '&nbsp' + document.body.scrollHeight);
+
+    /*
+     //TIMER
+    var time = 0;
+    var intervalID =  setInterval(function(){
+        time++;
+        document.write(time + "&nbsp");
+
+        if (time == 5){
+            clearInterval(intervalID);
+        }
+    }, 1000);
+
+     //history
+    history.forward();
+    document.write("history.length:" + history.length + "<br>");
+
+    //navigator
+    document.write(navigator.appCodeName + "<br>"
+            + navigator.appName  + "<br>"
+            + "navigator.appVersion: " + navigator.appVersion + "<br>"
+            + navigator.cookieEnabled  + "<br>"
+            +  navigator.geolocation.getCurrentPosition(function(p){
+                console.log(p.coords);
+            }) + "<br>"
+            + navigator.language  + "<br>"
+            + navigator.platform  + "<br>"
+            + navigator.userAgent
+    );
+     */
+
+    function getBrowserName(){
+        var userAgent = navigator.userAgent;
+        var result = "unknown name";
+
+        var s = userAgent.indexOf("safari");
+
+        if (userAgent.indexOf("Safari") > 0){
+            result = "Safari";
+        }else if(userAgent.indexOf("Chrome") > 0){
+            result = "Chrome";
+        }else if(userAgent.indexOf("MSIE") > 0 || userAgent.indexOf("Trident") > 0){
+            result = "IE";
+        }
+
+        var form = document.getElementById("browserNameID");
+        form.children[1].value = result;
+    }
+
+</script>
+
+</body>
+</html>

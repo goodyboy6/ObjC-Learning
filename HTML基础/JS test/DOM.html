@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+<p>列表示例：</p>
+<ul id="myList"><li id="item1">Coffee</li> <li id="itemddd2">Tea</li></ul>
+
+<p id="demo" class="tt">点击按钮来获得首个项目的下一个同胞的 id。</p>
+
+<button onclick="myFunction()">试一下</button>
+
+<script>
+
+    console.log(document.getElementById("demo").nodeValue);
+
+    function myFunction() {
+
+       var attr = document.getElementById("demo").getAttribute("class");
+        document.getElementById("demo").innerHTML = "pppppp<span style=\"color:red\">ppppppp</span>pppppp";
+
+        var list = document.getElementById("myList");
+        console.log(list.getAttributeNode("id").value);
+
+        var clsses = document.getElementsByClassName("tt");
+        for (var i=0; i<clsses.length; i++){
+            console.log(clsses[i]);
+        }
+
+        var text = document.createTextNode("today is a nice day");
+        var pNode = document.createElement("p");
+        pNode.style.color = 'red';
+        pNode.style.textDecoration = 'underline';
+        pNode.onclick = function(){
+            pNode.style.color = 'blue';
+        }
+        pNode.appendChild(text);
+
+        //必须找到父节点，才能执行
+        document.body.insertBefore(pNode, document.getElementById("demo"));
+    }
+</script>
+
+<p><b>注释：</b>元素中的空格被视作文本，而文本被视作文本节点。</p>
+
+<p>请尝试在两个 <li> 元素之间添加空格，结果将是 "undefined"。</p>
+
+</body>
+</html>

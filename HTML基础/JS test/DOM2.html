@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> new document </title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;"/>
+    <script type="text/javascript">
+        window.onload = function(){
+            //添加删除操作
+            addDeleteActionsToAllRows();
+
+            // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+            var allRows = getRowsThatCanbeDeleted();
+            for (var i=0; i<allRows.length;i++){
+                var row = allRows[i];
+                addMouseActionToRow(row);
+            }
+
+            //增加一行
+            var addButton = getAddButton();
+            addButton.onclick = function(){
+                addNewRow();
+            }
+        }
+
+        // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；
+        function addNewRow(){
+
+            //添加学号
+            var td1 = document.createElement("td");
+            var tdText = document.createTextNode("xh00" + (document.getElementsByTagName("tr").length));
+            td1.appendChild(tdText);
+
+            //添加姓名
+            var td2 = document.createElement("td");
+            var tdText = document.createTextNode("张晓" + (document.getElementsByTagName("tr").length));
+            td2.appendChild(tdText);
+
+            //添加删除按钮
+            var td3 = document.createElement("td");
+            td3.innerHTML = "<a href=\"javascript:void(0);\" >删除</a>";
+
+            //创建行
+            var tr = document.createElement("tr");
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            //添加行
+            var table = document.getElementById("table");
+            table.appendChild(tr);
+
+            addMouseActionToRow(tr);
+            addDeleteActionToRow(tr);
+        }
+
+        function getAddButton(){
+            var addButton;
+
+            var allButtons = document.getElementsByTagName("input");
+            for (var j = 0; j<allButtons.length; j++){
+                var aButton = allButtons[j];
+                if (aButton.type === "button"){
+                    addButton = aButton;
+                    break;
+                }
+            }
+            return addButton;
+        }
+
+        //每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色
+        function addMouseActionToRow(row){
+            !function(r){
+                r.onmouseover = function (){
+                    r.style.backgroundColor = "red";//"#f2f2f2";
+                };
+                r.onmouseout = function (){
+                    r.style.backgroundColor = "#fff";
+                };
+            }(row);
+        }
+
+        // 给当前所有行添加删除行为
+        function addDeleteActionsToAllRows(){
+            var rowsThatCanBeDeleted = getRowsThatCanbeDeleted();
+            for(var j = 0; j<rowsThatCanBeDeleted.length; j++){
+                addDeleteActionToRow(rowsThatCanBeDeleted[j]);
+            }
+        }
+
+        //给一行添加删除行为
+        function addDeleteActionToRow(row){
+            var lastTd = row.children[row.children.length-1];
+            !function(td, tr){
+                td.onclick = function(){
+                    tr.parentNode.removeChild(tr);
+                };
+            }(lastTd, row);
+        }
+
+        //获取可删除行
+       function getRowsThatCanbeDeleted(){
+           var allRows = document.getElementsByTagName("tr");
+           var rowsThatCanBeDelete = new Array();
+
+           var i = 0;
+           for(; i<allRows.length; i++){
+               var row = allRows[i];
+               var ths = row.children;
+               if (ths && ths[0].nodeName == "TD"){
+                   rowsThatCanBeDelete.push(row);
+               }
+           }
+
+           return rowsThatCanBeDelete;
+       }
+
+/*
+* 要求：
+
+ 1. 鼠标移到不同行上时背景色改为色值为 #f2f2f2，移开鼠标时则恢复为原背景色 #fff
+
+ 2. 点击添加按钮，能动态在最后添加一行
+
+ 3. 点击删除按钮，则删除当前行
+* */
+    </script>
+</head>
+<body>
+<table border="1" width="50%" id="table">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>操作</th>
+    </tr>
+
+    <tr>
+        <td>xh001</td>
+        <td>王小明</td>
+        <td><a href="javascript:void(0);" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+    </tr>
+
+    <tr>
+        <td>xh002</td>
+        <td>刘小芳</td>
+        <td><a href="javascript:void(0);" >删除</a></td>   <!--在删除按钮上添加点击事件  -->
+    </tr>
+
+</table>
+<input type="button" value="添加一行"  />   <!--在添加按钮上添加点击事件  -->
+</body>
+</html>
