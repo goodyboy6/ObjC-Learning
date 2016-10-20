@@ -1,8 +1,8 @@
 //
 //  main.m
-//  RNTest
+//  RNDemo
 //
-//  Created by yixiaoluo on 2016/9/7.
+//  Created by yixiaoluo on 2016/10/19.
 //  Copyright © 2016年 yixiaoluo. All rights reserved.
 //
 

@@ -1,0 +1,28 @@
+source "git@gitlab.alibaba-inc.com:alipods/specs.git"
+source "git@gitlab.alibaba-inc.com:alipods/specs-mirror.git"
+
+workspace 'ios/RNDemo.xcworkspace'
+xcodeproj 'ios/RNDemo.xcodeproj'
+
+# ignore warnings from a specific pod
+
+target "RNDemo" do
+    pod 'Masonry', '~> 1.0.2'
+    # Your 'node_modules' directory is probably in the root of your project,
+    # but if not, adjust the `:path` accordingly
+    pod 'React', :path => './node_modules/react-native', :subspecs => [
+        'Core',
+        'RCTText',
+        'RCTNetwork',
+        'RCTWebSocket', # needed for debugging
+        # Add any other subspecs you want to use in your project
+    ]
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['ONLY_ACTIVE_ARCH'] = "NO"
+        end
+    end
+end
